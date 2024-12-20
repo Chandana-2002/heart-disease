@@ -1,0 +1,263 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+    integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+  <link rel="stylesheet" href="/connect.css">
+  <title>HEART DISEASE PREDICTION</title>
+
+  <style>
+    ul {
+      list-style: none;
+      /* background: #dea5c0; */
+    }
+
+    ul li {
+      display: inline-block;
+      position: relative;
+
+    }
+
+    ul li a {
+      display: block;
+      padding: 10px 25px;
+      color: brown;
+      text-decoration: none;
+      text-align: left;
+      font-size: 20px;
+    }
+
+    ul li ul.dropdown li {
+      display: block;
+      /* font-size: 15px; */
+    }
+
+    ul li ul.dropdown {
+      /* width: 10%; */
+      background: pink;
+      position: absolute;
+      z-index: 999;
+      display: none;
+    }
+
+    ul li a:hover {
+      background: pink;
+    }
+
+    ul li:hover ul.dropdown {
+      display: block;
+    }
+
+
+    body {
+      background-image: url(/static/output.jpg);
+      background-size: cover;
+
+    }
+
+    .btnh {
+      border: 1.4px solid rgb(32, 239, 35);
+      padding: 15px 20px;
+      color: rgb(32, 239, 35);
+      transition: 0.5 ease;
+      font-size: 19px;
+      text-decoration: none;
+      margin-left: 450px;
+      position: absolute;
+      bottom: 30px;
+      left: 50%;
+      border-radius: 6px;
+      box-shadow: 4px 4px 8px rgba(101,219, 130);
+      /* margin-bottom: 40px; */
+
+    }
+
+    .btnh:hover {
+      background-color: pink;
+      color: rgb(9, 10, 10);
+    }
+  </style>
+
+</head>
+
+<body>
+  <div class="header bg-primary/ text-black">
+    <marquee behavior="" direction="right">
+      <h1>
+        Heart Disease Prediction
+      </h1>
+    </marquee>
+  </div>
+
+  {% if result %}
+  <center>
+    <h1 style="color:cornflowerblue;font-size:30px;align-items: center;">
+
+      {{ result }}
+
+    </h1>
+  </center>
+  {% endif %}
+
+  <div class="container col-md-4 btn-info">
+    <form action="/predict" method="post">
+      <table class="table">
+        <tr>
+          <td>
+            <h3>Algorithm</h3>
+          </td>
+          <td><select name="algorithm" id="algorithm" style="font-size: x-large;">
+              <option value="K-Nearest Neighbors">KNN</option>
+              <option value="Random Forest">Random Forest</option>
+              <option value="Decision tree">Decision Tree</option>
+              <option value="Naive Bayes">Naive Bayes</option>
+            </select></td>
+        </tr>
+  </div>
+
+  <div class="container  col-md-4">
+    <form action="/predict" method="post">
+      <table class="table" style="font-size: large;">
+
+
+        <center>
+          <h4 style="color: rgb(249, 232, 43);">Input the parameters</h4>
+        </center>
+        <tr>
+          <td>age</td>
+          <td>
+            <input type="text" name="age" required>
+          </td>
+        </tr>
+        <tr>
+          <td>sex</td>
+          <td>
+            <input type="text" name="sex" required>
+          </td>
+        </tr>
+        <tr>
+          <td>cp</td>
+          <td>
+            <input type="text" name="cp" required>
+          </td>
+        </tr>
+        <tr>
+          <td>trestbps</td>
+          <td>
+            <input type="text" name="trestbps" required>
+          </td>
+        </tr>
+
+        <tr>
+          <td>chol</td>
+          <td>
+            <input type="text" name="chol" required>
+          </td>
+        </tr>
+        <tr>
+          <td>fbs</td>
+          <td>
+            <input type="text" name="fbs" required>
+          </td>
+        </tr>
+
+        <tr>
+          <td>restecg</td>
+          <td>
+            <input type="text" name="restecg" required>
+          </td>
+        </tr>
+        <tr>
+          <td>thalach</td>
+          <td>
+            <input type="text" name="talach" required>
+          </td>
+        </tr>
+        <tr>
+          <td>exang</td>
+          <td>
+            <input type="text" name="exang" required>
+          </td>
+        </tr>
+        <tr>
+          <td>oldpeak</td>
+          <td>
+            <input type="text" name="oldpeak" required>
+          </td>
+        </tr>
+        <tr>
+          <td>slope</td>
+          <td>
+            <input type="text" name="slope" required>
+          </td>
+        </tr>
+        <tr>
+          <td>ca</td>
+          <td>
+            <input type="text" name="ca" required>
+          </td>
+        </tr>
+        <tr>
+          <td>thal</td>
+          <td>
+            <input type="text" name="thal" required>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <input type="submit" value="Recommend" class="btn btn-danger">
+          </td>
+        </tr>
+      </table>
+      <a href="/" class="btnh">Home</a>
+    </form>
+    
+  </div>
+
+  <!-- <div class=" bg btn-info text-white text-center">
+    
+    {% if result  %}
+    <h1>
+          
+        {{ result }}
+
+    </h1>
+        
+    {% endif %} -->
+  </div>
+  <!-- Optional JavaScript; choose one of the two! -->
+
+  <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct"
+    crossorigin="anonymous"></script>
+
+  <!-- Option 2: Separate Popper and Bootstrap JS -->
+  <!--
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js" integrity="sha384-+sLIOodYLS7CIrQpBjl+C7nPvqq+FbNUBDunl/OZv93DB7Ln/533i8e/mZXLi/P+" crossorigin="anonymous"></script>
+    -->
+  
+</body>
+
+</html>
+
+
+<!-- 
+In summary, this code creates a styled <div> element with a red background,
+   white text, 
+  and centered text alignment. 
+  If the result variable is truthy, it will be displayed as an <h1>
+     heading inside the <div>. If result is falsy, the <div> will be empty. 
+      The specific styling and behavior will depend on the values of the result 
+      variable and the CSS styles applied elsewhere in the code. -->

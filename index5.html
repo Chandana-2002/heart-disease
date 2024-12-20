@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heart Disease Prediction</title>
+    <style>
+        *{
+    margin: 0px;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
+}
+html{
+    scroll-behavior: smooth;
+}
+body{
+    background: #c9ecf8;
+    color: white;
+}
+#header{
+    width: 100%;
+    height: 100vh;
+    background-image: url(/static/b1.jpg);
+    background-size: cover;
+    background-position: center;
+}
+.container{
+    padding: 10px 10px;
+}
+nav{
+    display: flex;
+    align-items:center;
+    justify-content:space-between;
+    flex-wrap: wrap;
+    margin-top: 10px;
+    
+    /* height: 20px; */
+
+}
+
+/* nav ul {
+    margin-left: 800px; */
+
+/* } */
+/* .logo{
+    width: 300px; */
+/* } */
+
+nav ul li{
+    display: inline-block;
+    list-style: none;
+    margin: 10px 20px;
+    margin-left: px;
+}
+.nav{
+    /* margin-top: 0; */
+    color: wheat;
+    text-decoration: none;
+    font-size: 25px;
+    font-weight: 1000;
+    position: relative;
+    font-weight: bold;
+    /* margin-left: 50px; */
+    
+}
+.pre{
+    font-size: 25px;
+    border: 1.4px solid rgb(59, 26, 222);
+    padding: 15px 20px;
+    color: rgb(83, 32, 239);
+    transition: 0.5 ease;
+    border-radius: 6px;
+    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.6);
+}
+.pre:hover{
+    background-color:pink;
+    color: rgb(9, 10, 10);
+}
+nav ul li a::after{
+    content: '';
+    width: 0;
+    height: 3px;
+    background: #17d0ec;
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    transition: 0.5s;
+}
+nav ul li a:hover::after{
+    width: 100%;
+}
+.header-text{
+    margin-top: 20%;
+    font-size: 30px;
+}
+.header-text h1{
+    font-size: 60px;
+    margin-top: 20px;
+}
+.title{
+    position: absolute;
+    top: 30%;
+    left: 17%;
+}
+.title h3{
+    color: rgb(121, 101, 213);
+    font-size: 45px;
+}
+.button{
+    position: absolute;
+    top: 350px;
+    left: 400px;
+    transform: translate(-50%,-50%);
+    
+}
+.button1{
+    position: absolute;
+    top: 350px;
+    left: 800px;
+    transform: translate(-50%,-50%);
+}
+.button2{
+    position: absolute;
+    /* top: 80%;
+    left: 30%; */
+    top: 470px;
+    left: 400px;
+    transform: translate(-50%,-50%);
+}
+.button3{
+    position: absolute;
+    top: 470px;
+    left: 800px;
+    transform: translate(-50%,-50%);
+}
+.btn{
+    border: 1.4px solid rgb(101, 219, 130);
+    padding: 15px 20px;
+    color: rgb(248, 246, 255);
+    transition: 0.5 ease;
+    font-size: 20px;
+    text-decoration: none;
+    border-radius: 6px;
+    box-shadow: 4px 4px 8px rgba(101,219, 130);
+
+}
+.btn:hover{
+    background-color:pink;
+    color: rgb(9, 10, 10);
+    /* border-radius: 6px; */
+    /* box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.6); */
+}
+
+
+
+#about{
+    padding:150px 0;
+    color: white;
+    text-shadow: 0px 0px 3px black;
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    background-image: url(/static/z8.jpg);
+    opacity: 0.8rem;
+    background-position: center;
+    background-size: cover;
+}
+.row{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.about-col-1{
+    flex-basis: 25%;
+    
+}
+.about-col-1 img{
+    width: 100%;
+    border-radius: 15px;
+    margin-left: 140px;
+    margin-top: 10px;
+    /* opacity: 0.2rem; */
+}
+.about-col-2{
+    flex-basis:60%;
+    /* padding-left: px; */
+}
+.sub-title{
+    font-size: 60px;
+    margin-left: 10px;
+    font-weight: 600;
+    color:#fff;
+}
+ p{
+    font-size: 17px;
+    margin-left: 10px;
+}
+.btnh{
+    border: 1.4px solid rgb(242, 241, 249);
+    padding: 15px 20px;
+    color: #fff;
+    transition: 0.5 ease;
+    font-size: 18px;
+    text-decoration: none;
+    margin-left: 370px;
+    position: absolute;
+    bottom: 100;
+    left: 50%;
+    border-radius: 6px;
+    box-shadow: 4px 4px 8px rgba(24, 244, 4, 0.6);
+    /* margin-bottom: 40px; */
+
+}
+.btnh:hover{
+    background-color:pink;
+    color: rgb(9, 10, 10);
+}
+
+    </style>
+</head>
+<body>
+    <div id="header">
+        <div class="container">
+
+            <nav>
+                <h1></h1>
+                <!-- <img src="h1.jfif" class="logo"> -->
+                <ul>
+                    <!-- <h1>Heart Desease Prediction</h1> -->
+                    <li><a href="#header" class="nav">Home</a></li>
+                    <li><a href="#about" class="nav">About</a></li>
+                    <!-- <li><a href="#prediction" class="nav pre">Prediction</a></li> -->
+                    <li><a href="/nodu" class="nav">Prediction</a></li>
+                </ul>
+            </nav><br><br><br><br>
+            <center><h1 style="font-size: 60px;"><b>HEART DISEASE PREDICTION</b></h1></center>
+            <div class="button">
+                <a href="/knn" class="btn">K Nearest Neighbor Classifier</a>
+            </div>
+            <div class="button1">
+                <a href="/rfc" class="btn">Random Forest Classifier</a>
+            </div>
+        
+            <div class="button2">
+                <a href="/dct" class="btn">Decision Tree Classifier</a>
+            </div>
+            <div class="button3">
+                <a href="/nbc" class="btn">Naive Bayes Classifier</a>
+            </div>
+            
+            
+        </div>
+
+    </div>
+    <div id="about">
+        <div class="container">
+            <div class="row">
+                <div class="about-col-1">
+                    <!-- <img src="/static/images (1).jfif" > -->
+                </div>
+                <div class="about-col-2">
+                    <h1 class="sub-title">About</h1>
+                    <br>
+                    <br>
+                    <p>Heart disease is the major cause of deaths worldwide. To give treatment for heart disease, a lot of advanced technologies are used. In medical center it is the most common problem because many medical persons do not have equal knowledge and expertise to treat their patient so they deduce their own decision and as a result it shows poor outcome and sometimes lead to death. To overcome these problems ,prediction of heart disease is being done by using machine learning algorithms and data mining techniques, it has become easy to perform automatic diagnosis in hospitals as they are playing vital role in this regard. Heart disease can be predicted by performing analysis on patient’s different health parameters.</p>
+                </div>
+            </div>
+            <br>
+            <a href="#" class="btnh">Home</a>
+        </div>
+    </div>
+    
